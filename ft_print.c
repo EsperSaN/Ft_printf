@@ -3,11 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: eszu <eszu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:13:26 by pruenrua          #+#    #+#             */
-/*   Updated: 2022/09/03 16:13:28 by pruenrua         ###   ########.fr       */
+/*   Updated: 2022/09/07 00:42:01 by eszu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libftprintf.h"
 
+int ft_printf(const char *, ...)
+{
+    int op_count;
+
+    //if(s[i])
+
+    return (op_count);
+
+}
