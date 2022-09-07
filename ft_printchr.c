@@ -6,7 +6,7 @@
 /*   By: eszu <eszu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:11:55 by pruenrua          #+#    #+#             */
-/*   Updated: 2022/09/07 01:18:21 by eszu             ###   ########.fr       */
+/*   Updated: 2022/09/07 21:59:22 by eszu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int ft_putstring_f(char *str)
     }
     while (*str)
     {
-        op_count += ft_putchar_f(str);
+        op_count += ft_putchar_f(*str);
         str++;
     }
     return (op_count);
