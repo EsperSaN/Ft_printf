@@ -6,7 +6,7 @@
 /*   By: pruenrua <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 00:11:59 by pruenrua          #+#    #+#             */
-/*   Updated: 2022/09/09 00:12:05 by pruenrua         ###   ########.fr       */
+/*   Updated: 2022/09/09 00:24:51 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	ft_nbr_base(long value, char *base)
 {
-	long	result;
 	int		op_count;
 	int		base_count;
 
@@ -42,9 +41,8 @@ int	ft_nbr_base(long value, char *base)
 
 int	ft_nbr_base_u(unsigned long value, char *base, int mode)
 {
-	unsigned long	result;
 	int				op_count;
-	int				base_count;
+	unsigned long	base_count;
 
 	base_count = ft_strlen_f(base);
 	op_count = 0;

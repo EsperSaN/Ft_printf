@@ -6,26 +6,24 @@
 #    By: pruenrua <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/03 15:27:20 by pruenrua          #+#    #+#              #
-#    Updated: 2022/09/09 00:10:19 by pruenrua         ###   ########.fr        #
+#    Updated: 2022/09/09 00:26:47 by pruenrua         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME : libftprintf.a
+NAME = libftprintf.a
 
-CC : gcc
+CC = gcc
 
-CFLAG : -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
-AR : ar -rcs
+SRC = ft_printf.c ft_printnbr.c ft_printchr.c
 
-SRC : ft_printf.c ft_printnbr.c ft_printchr.c
-
-OBJ : $(SRC:.c=.o)
+OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(AR) $(NAME) $(OBJ)
+	ar -rcs $(NAME) $(OBJ)
 
 clean :
 	rm -rf $(OBJ)
