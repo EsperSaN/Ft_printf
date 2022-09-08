@@ -6,46 +6,45 @@
 /*   By: eszu <eszu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:11:55 by pruenrua          #+#    #+#             */
-/*   Updated: 2022/09/07 21:59:22 by eszu             ###   ########.fr       */
+/*   Updated: 2022/09/08 23:56:54 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int ft_strlen_f(char *str)
+int	ft_strlen_f(char *str)
 {
-    int  len;
+	int	len;
 
-    len = 0; 
-    while(*str)
-    {
-        str++;
-        len++;
-    }
-    return (len);
+	len = 0;
+	while (*str)
+	{
+		str++;
+		len++;
+	}
+	return (len);
 }
 
-int ft_putchar_f(int c)
+int	ft_putchar_f(int c)
 {
-    write(1, &c, 1);
-    return (1);
+	write(1, &c, 1);
+	return (1);
 }
 
-int ft_putstring_f(char *str)
+int	ft_putstring_f(char *str)
 {
-    int op_count;
+	int	op_count;
 
-    op_count = 0;
-
-    if (str == NULL)
-    {
-        write(1, "(NULL)", 6);
-        op_count += 6;   
-    }
-    while (*str)
-    {
-        op_count += ft_putchar_f(*str);
-        str++;
-    }
-    return (op_count);
+	op_count = 0;
+	if (str == NULL)
+	{
+		write(1, "(NULL)", 6);
+		op_count += 6;
+	}
+	while (*str)
+	{
+		op_count += ft_putchar_f(*str);
+		str++;
+	}
+	return (op_count);
 }

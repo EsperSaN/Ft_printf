@@ -6,60 +6,71 @@
 /*   By: eszu <eszu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:13:26 by pruenrua          #+#    #+#             */
-/*   Updated: 2022/09/07 22:12:19 by eszu             ###   ########.fr       */
+/*   Updated: 2022/09/08 23:58:04 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int ft_printf(const char *str, ...)
+int	do_percent(char format, va_list argu)
 {
-    int i;
-    int op_count;
-    va_list argu;
+	char	*hex;
+	char	*b_hex;
 
-    op_count = 0;
-    i = 0;
-    va_start (argu, str);
-    while (str[i])
-    {
-        if (str[i] == '%')
-        {
-            i++;
-            if (str[i] == 'c')
-                op_count += ft_putchar_f(va_arg(argu,int));
-            else if (str[i] == 's')
-                op_count += ft_putstring_f(va_arg(argu,char *));
-            else if (str[i] == 'p')
-                op_count += ft_print_nbr_base_u(va_arg(argu,unsigned long),"0123456789abcdef");
-            else if (str[i] == 'd')
-                op_count += ft_print_nbr_base(va_arg(argu,int),"0123456789");
-            else if (str[i] == 'i')
-                op_count += ft_print_nbr_base(va_arg(argu,long),"0123456789");
-            else if (str[i] == 'u')
-                op_count += ft_print_nbr_base_u(va_arg(argu,unsigned long),"0123456789");
-            else if (str[i] == 'x')
-                op_count += ft_print_nbr_base_u(va_arg(argu,unsigned long),"0123456789abcdef");
-            else if (str[i] == 'X')
-                op_count += ft_print_nbr_base_u(va_arg(argu,unsigned long),"0123456789ABCDEF");
-            else if (str[i] == '%')
-                op_count += write(1, "%", 1);
-        }
-        else
-            op_count += ft_putchar_f(str[i]);
-        i++;
-    }
-    va_end (argu);
-    return (op_count);
+	hex = "0123456789abcdef";
+	b_hex = "0123456789ABCDEF";
+	if (format == 'c')
+		return (ft_putchar_f(va_arg(argu, int)));
+	else if (format == 's')
+		return (ft_putstring_f(va_arg(argu, char *)));
+	else if (format == 'p')
+		return (ft_nbr_base_u(va_arg(argu, unsigned long), hex, 1));
+	else if (format == 'd' || format == 'i')
+		return (ft_nbr_base(va_arg(argu, int), "0123456789"));
+	else if (format == 'u')
+		return (ft_nbr_base_u(va_arg(argu, unsigned int), "0123456789", 0));
+	else if (format == 'x')
+		return (ft_nbr_base_u(va_arg(argu, unsigned int), hex, 0));
+	else if (format == 'X')
+		return (ft_nbr_base_u(va_arg(argu, unsigned int), b_hex, 0));
+	else if (format == '%')
+		return (write(1, "%", 1));
+	else
+		return (0);
 }
 
-int main()
+int	ft_printf(const char *str, ...)
 {
-    ft_printf("%d hello \n",-123456);
+	int			i;
+	int			op;
+	va_list		argu;
+
+	op = 0;
+	i = 0;
+	va_start (argu, str);
+	while (str[i])
+	{
+		if (str[i] == '%')
+		{
+			i++;
+			op += do_percent(str[i], argu);
+		}
+		else
+			op += ft_putchar_f(str[i]);
+		i++;
+	}
+	va_end (argu);
+	return (op);
+}
+/*int main()
+{
+    char *s = malloc(1);
+    int i = 1234567890;
+    ft_printf("%x %%hello %i \n",i);
     
-    printf("%d real \n",-123456);
+    printf("%x %%real %i \n",i);
     //ft_printf("\n");
     //printf("%s hello2 \n start","START");
 
     //ft_putstring_f("STARTsss");
-}
+}*/

@@ -6,7 +6,7 @@
 #    By: pruenrua <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/03 15:27:20 by pruenrua          #+#    #+#              #
-#    Updated: 2022/09/03 15:45:53 by pruenrua         ###   ########.fr        #
+#    Updated: 2022/09/03 16:13:16 by pruenrua         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAG : -Wall -Werror -Wextra
 
 AR : ar -rcs
 
-SRC : ft_printf.c ft_printnbr.c ft_print.c
+SRC : ft_printf.c ft_printnbr.c ft_printchr.c
 
 OBJ : $(SRC:.c=.o)
 
