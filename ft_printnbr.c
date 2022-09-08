@@ -6,11 +6,11 @@
 /*   By: pruenrua <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 00:11:59 by pruenrua          #+#    #+#             */
-/*   Updated: 2022/09/09 00:24:51 by pruenrua         ###   ########.fr       */
+/*   Updated: 2022/09/09 00:37:37 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_nbr_base(long value, char *base)
 {
@@ -63,5 +63,5 @@ int	ft_nbr_base_u(unsigned long value, char *base, int mode)
 	}
 	if (value < base_count)
 		op_count += ft_putchar_f(base[(value % base_count)]);
-	return (op_count);
+    return (op_count);
 }

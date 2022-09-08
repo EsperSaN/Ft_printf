@@ -6,11 +6,11 @@
 /*   By: pruenrua <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 00:12:17 by pruenrua          #+#    #+#             */
-/*   Updated: 2022/09/09 00:12:19 by pruenrua         ###   ########.fr       */
+/*   Updated: 2022/09/09 00:42:49 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_strlen_f(char *str)
 {
@@ -27,8 +27,7 @@ int	ft_strlen_f(char *str)
 
 int	ft_putchar_f(int c)
 {
-	write(1, &c, 1);
-	return (1);
+	return (write(1, &c, 1));
 }
 
 int	ft_putstring_f(char *str)
@@ -38,8 +37,8 @@ int	ft_putstring_f(char *str)
 	op_count = 0;
 	if (str == NULL)
 	{
-		write(1, "(NULL)", 6);
-		op_count += 6;
+		op_count += write(1,"(null)", 6);
+		return (op_count);
 	}
 	while (*str)
 	{
