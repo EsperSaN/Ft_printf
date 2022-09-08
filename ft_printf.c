@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.c                                         :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eszu <eszu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pruenrua <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 16:13:26 by pruenrua          #+#    #+#             */
-/*   Updated: 2022/09/08 23:58:04 by pruenrua         ###   ########.fr       */
+/*   Created: 2022/09/09 00:11:00 by pruenrua          #+#    #+#             */
+/*   Updated: 2022/09/09 00:11:48 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,15 +62,3 @@ int	ft_printf(const char *str, ...)
 	va_end (argu);
 	return (op);
 }
-/*int main()
-{
-    char *s = malloc(1);
-    int i = 1234567890;
-    ft_printf("%x %%hello %i \n",i);
-    
-    printf("%x %%real %i \n",i);
-    //ft_printf("\n");
-    //printf("%s hello2 \n start","START");
-
-    //ft_putstring_f("STARTsss");
-}*/
