@@ -1,43 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printnbr.c                                      :+:      :+:    :+:   */
+/*   ft_printnbr_u.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pruenrua <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/09 00:11:59 by pruenrua          #+#    #+#             */
-/*   Updated: 2022/09/09 12:52:03 by pruenrua         ###   ########.fr       */
+/*   Created: 2022/09/09 10:55:21 by pruenrua          #+#    #+#             */
+/*   Updated: 2022/09/09 12:54:19 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_put_nbr_base(long value, char *base, int base_count)
-{
-	if (value < 0)
-	{
-		value = (value * -1);
-		ft_putchar_f('-');
-	}
-	if (value >= base_count)
-	{
-		ft_put_nbr_base(value / base_count, base, base_count);
-		value = value % base_count;
-	}
-	if (value < base_count)
-		ft_putchar_f(base[(value)]);
-}
-
-int	ft_nbr_len(long value, int base_count)
+int	ft_nbr_len_u(unsigned long value, unsigned long base_count)
 {
 	int	len;
 
 	len = 0;
-	if (value < 0)
-	{
-		value = (value * -1);
-		len++;
-	}
 	while (value)
 	{
 		value = value / base_count;
@@ -46,13 +25,28 @@ int	ft_nbr_len(long value, int base_count)
 	return (len);
 }
 
-int	ft_nbr_base(long value, char *base)
+void	ft_put_nbr_base_u(unsigned long value, char *base, unsigned long bc)
 {
-	int	base_count;
+	if (value >= bc)
+	{
+		ft_put_nbr_base_u((value / bc), base, bc);
+		value = value % bc;
+	}
+	if (value < bc)
+		ft_putchar_f(base[value]);
+}
 
+int	ft_nbr_base_u(unsigned long value, char *base, int mode)
+{
+	unsigned long	base_count;
+	int				add;
+
+	add = 0;
+	if (mode == 1)
+		add += write(1, "0x", 2);
 	if (value == 0)
-		return (write(1, "0", 1));
+		return (write(1, "0", 1) + add);
 	base_count = ft_strlen_f(base);
-	ft_put_nbr_base(value, base, base_count);
-	return (ft_nbr_len(value, base_count));
+	ft_put_nbr_base_u(value, base, base_count);
+	return (ft_nbr_len_u(value, base_count) + add);
 }

@@ -6,7 +6,7 @@
 /*   By: pruenrua <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 00:12:17 by pruenrua          #+#    #+#             */
-/*   Updated: 2022/09/09 00:42:49 by pruenrua         ###   ########.fr       */
+/*   Updated: 2022/09/09 11:56:05 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_putstring_f(char *str)
 	op_count = 0;
 	if (str == NULL)
 	{
-		op_count += write(1,"(null)", 6);
+		op_count += write(1, "(null)", 6);
 		return (op_count);
 	}
 	while (*str)

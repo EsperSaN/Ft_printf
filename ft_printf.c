@@ -6,7 +6,7 @@
 /*   By: pruenrua <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 00:11:00 by pruenrua          #+#    #+#             */
-/*   Updated: 2022/09/09 00:37:48 by pruenrua         ###   ########.fr       */
+/*   Updated: 2022/09/09 11:30:48 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	ft_printf(const char *str, ...)
 	va_end (argu);
 	return (op);
 }
-int main()
+/*int main()
 {
 	int i = ft_printf("\n%p\n",16);
 	int i2 = printf("\n%p\n",16);
@@ -70,4 +70,4 @@ int main()
 	printf("FT = %d and REAL = %d",i,i2);
 
 	printf("\n%d",ft_nbr_base_u(16,"0123456789abcdef",1));
-}
+}*/
